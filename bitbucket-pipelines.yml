@@ -4,7 +4,7 @@ pipelines:
   default:
     - step:
         script:
-          -mvn -s settings.xml package
+          - mvn -s settings.xml package
   branches:
     master:
       - step:
