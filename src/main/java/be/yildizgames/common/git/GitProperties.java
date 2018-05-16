@@ -26,6 +26,10 @@ package be.yildizgames.common.git;
 
 import java.util.Properties;
 
+/**
+ * Data object built from a properties containing git informations.
+ * @author Grégory Van den Borre
+ */
 public class GitProperties {
 
     private final String branch;

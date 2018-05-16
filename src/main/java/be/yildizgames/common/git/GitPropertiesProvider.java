@@ -28,10 +28,23 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
+ * Create a git properties object from the expected property file.
  * @author Grégory Van den Borre
  */
 public class GitPropertiesProvider {
 
+    /**
+     * Private constructor to prevent instantiation.
+     */
+    private GitPropertiesProvider() {
+        super();
+    }
+
+    /**
+     * Create a git property object from a git property file..
+     * If the file cannot be found, a technical exception will be raised.
+     * @return The GitProperties fulfilled object.
+     */
     public static GitProperties getGitProperties()  {
         try(InputStream is = GitPropertiesProvider.class.getClassLoader().getResourceAsStream("git.properties")) {
             Properties p = new Properties();
