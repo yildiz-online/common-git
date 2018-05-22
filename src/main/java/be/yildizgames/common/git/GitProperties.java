@@ -27,7 +27,7 @@ package be.yildizgames.common.git;
 import java.util.Properties;
 
 /**
- * Data object built from a properties containing git informations.
+ * Data object built from a properties containing git information.
  * @author Grégory Van den Borre
  */
 public class GitProperties {
@@ -45,22 +45,38 @@ public class GitProperties {
     private final String commitTime;
 
     private final String commitMessageFull;
+
     private final String host;
+
     private final String userEmail;
+
     private final String userName;
+
     private final String closestTagCommitCount;
+
     private final String closesTagName;
+
     private final String commitIdAbrev;
+
     private final String commitIdDescribe;
+
     private final String commitIdDescribeShort;
+
     private final String commitMessageShort;
+
     private final String commiterEmail;
+
     private final String dirty;
+
     private final String origin;
+
     private final String tags;
 
     GitProperties(Properties p) {
         super();
+        if(p == null) {
+            throw new GitPropertiesException("null parameter.");
+        }
         this.branch = getValue(p, "git.branch");
         this.host = getValue(p, "git.build.host");
         this.buildTime = getValue(p, "git.build.time");
@@ -83,83 +99,83 @@ public class GitProperties {
         this.tags = getValue(p, "git.tags");
     }
 
-    public String getBranch() {
+    public final String getBranch() {
         return branch;
     }
 
-    public String getCommiter() {
+    public final String getCommiter() {
         return commiter;
     }
 
-    public String getVersion() {
+    public final String getVersion() {
         return version;
     }
 
-    public String getBuildTime() {
+    public final String getBuildTime() {
         return buildTime;
     }
 
-    public String getCommitId() {
+    public final String getCommitId() {
         return commitId;
     }
 
-    public String getCommitTime() {
+    public final String getCommitTime() {
         return commitTime;
     }
 
-    public String getCommitMessageFull() {
+    public final String getCommitMessageFull() {
         return commitMessageFull;
     }
 
-    public String getHost() {
+    public final String getHost() {
         return host;
     }
 
-    public String getUserEmail() {
+    public final String getUserEmail() {
         return userEmail;
     }
 
-    public String getUserName() {
+    public final String getUserName() {
         return userName;
     }
 
-    public String getClosestTagCommitCount() {
+    public final String getClosestTagCommitCount() {
         return closestTagCommitCount;
     }
 
-    public String getClosesTagName() {
+    public final String getClosesTagName() {
         return closesTagName;
     }
 
-    public String getCommitIdAbrev() {
+    public final String getCommitIdAbrev() {
         return commitIdAbrev;
     }
 
-    public String getCommitIdDescribe() {
+    public final String getCommitIdDescribe() {
         return commitIdDescribe;
     }
 
-    public String getCommitIdDescribeShort() {
+    public final String getCommitIdDescribeShort() {
         return commitIdDescribeShort;
     }
 
-    public String getCommitMessageShort() {
+    public final String getCommitMessageShort() {
         return commitMessageShort;
     }
 
-    public String getCommiterEmail() {
+    public final String getCommiterEmail() {
         return commiterEmail;
     }
 
-    public String getDirty() {
+    public final String getDirty() {
         return dirty;
     }
 
-    public String getOrigin() {
+    public final String getOrigin() {
         return origin;
     }
 
-    public String getTags() {
+    public final String getTags() {
         return tags;
     }
 

@@ -23,7 +23,7 @@
  */
 
 /**
- * Contains classes to handle git data.
+ * Contains classes to handle git information.
  * @author Grégory Van den Borre
  */
 package be.yildizgames.common.git;

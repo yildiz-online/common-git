@@ -24,19 +24,16 @@
 
 package be.yildizgames.common.git;
 
-import be.yildizgames.common.exception.technical.TechnicalException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
- * Technical exception to throw when git information cannot be retrieved.
  * @author Grégory Van den Borre
  */
-class GitPropertiesException extends TechnicalException {
+class GitPropertiesProviderTest {
 
-    GitPropertiesException(Exception cause) {
-        super("Could not retrieve git info:", cause);
-    }
-
-    GitPropertiesException(String cause) {
-        super("Could not retrieve git info:" + cause);
+    @Test
+    void notExistingFile() {
+        Assertions.assertThrows(GitPropertiesException.class, GitPropertiesProvider::getGitProperties);
     }
 }
