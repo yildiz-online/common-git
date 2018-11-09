@@ -22,38 +22,21 @@
  *
  */
 
-package be.yildizgames.common.git;
+package be.yildizgames.common.git.exception;
 
-import be.yildizgames.common.git.exception.GitPropertiesException;
-
-import java.io.InputStream;
-import java.util.Properties;
+import be.yildizgames.common.exception.technical.TechnicalException;
 
 /**
- * Create a git properties object from the expected property file.
+ * Technical exception to throw when git information cannot be retrieved.
  * @author Grégory Van den Borre
  */
-public class GitPropertiesProvider {
+public class GitPropertiesException extends TechnicalException {
 
-    /**
-     * Private constructor to prevent instantiation.
-     */
-    private GitPropertiesProvider() {
-        super();
+    public GitPropertiesException(Exception cause) {
+        super("Could not retrieve git info:", cause);
     }
 
-    /**
-     * Create a git property object from a git property file..
-     * If the file cannot be found, a technical exception will be raised.
-     * @return The GitProperties fulfilled object.
-     */
-    public static GitProperties getGitProperties()  {
-        try(InputStream is = GitPropertiesProvider.class.getClassLoader().getResourceAsStream("git.properties")) {
-            Properties p = new Properties();
-            p.load(is);
-            return new GitProperties(p);
-        } catch (Exception e) {
-            throw new GitPropertiesException(e);
-        }
+    public GitPropertiesException(String cause) {
+        super("Could not retrieve git info:" + cause);
     }
 }

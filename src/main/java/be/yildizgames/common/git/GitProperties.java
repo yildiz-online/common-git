@@ -24,6 +24,8 @@
 
 package be.yildizgames.common.git;
 
+import be.yildizgames.common.git.exception.GitPropertiesException;
+
 import java.util.Properties;
 
 /**

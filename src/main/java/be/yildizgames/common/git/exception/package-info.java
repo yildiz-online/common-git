@@ -22,21 +22,8 @@
  *
  */
 
-package be.yildizgames.common.git;
-
-import be.yildizgames.common.exception.technical.TechnicalException;
-
 /**
- * Technical exception to throw when git information cannot be retrieved.
+ * Contains git specific exception classes.
  * @author Grégory Van den Borre
  */
-class GitPropertiesException extends TechnicalException {
-
-    GitPropertiesException(Exception cause) {
-        super("Could not retrieve git info:", cause);
-    }
-
-    GitPropertiesException(String cause) {
-        super("Could not retrieve git info:" + cause);
-    }
-}
+package be.yildizgames.common.git.exception;

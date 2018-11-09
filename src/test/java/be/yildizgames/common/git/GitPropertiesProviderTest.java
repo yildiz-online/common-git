@@ -24,6 +24,7 @@
 
 package be.yildizgames.common.git;
 
+import be.yildizgames.common.git.exception.GitPropertiesException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
