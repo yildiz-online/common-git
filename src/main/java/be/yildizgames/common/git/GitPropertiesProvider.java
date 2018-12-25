@@ -56,4 +56,12 @@ public class GitPropertiesProvider {
             throw new GitPropertiesException(e);
         }
     }
+
+    public static GitProperties getGitPropertiesSafe()  {
+        try {
+            return getGitProperties();
+        } catch (GitPropertiesException e) {
+            return new GitProperties(new Properties());
+        }
+    }
 }
