@@ -24,7 +24,6 @@
 
 package be.yildizgames.common.git;
 
-import be.yildizgames.common.git.exception.GitPropertiesException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +34,6 @@ class GitPropertiesProviderTest {
 
     @Test
     void notExistingFile() {
-        Assertions.assertThrows(GitPropertiesException.class, GitPropertiesProvider::getGitProperties);
+        Assertions.assertEquals("none", GitPropertiesProvider.getGitProperties().getBranch());
     }
 }
