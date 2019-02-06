@@ -30,10 +30,10 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-class GitPropertiesProviderTest {
+public class GitPropertiesProviderTest {
 
     @Test
-    void notExistingFile() {
+    public void notExistingFile() {
         Assertions.assertEquals("none", GitPropertiesProvider.getGitProperties().getBranch());
     }
 }

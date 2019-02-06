@@ -33,15 +33,15 @@ import java.util.Properties;
 /**
  * @author Grégory Van den Borre
  */
-class GitPropertiesTest {
+public class GitPropertiesTest {
 
     @Test
-    void checkNullParameter() {
+    public void checkNullParameter() {
         Assertions.assertThrows(GitPropertiesException.class, () -> new GitProperties(null));
     }
 
     @Test
-    void checkProperties() {
+    public void checkProperties() {
         Properties p = givenAProperties();
         GitProperties gitProperties = new GitProperties(p);
         Assertions.assertEquals("myBranch", gitProperties.getBranch());
@@ -67,7 +67,7 @@ class GitPropertiesTest {
     }
 
     @Test
-    void checkEmptyProperties() {
+    public void checkEmptyProperties() {
         Properties p = new Properties();
         GitProperties gitProperties = new GitProperties(p);
         Assertions.assertEquals("Unknown", gitProperties.getBranch());
