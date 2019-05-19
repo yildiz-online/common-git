@@ -36,4 +36,5 @@ public class GitPropertiesProviderTest {
     public void notExistingFile() {
         Assertions.assertEquals("none", GitPropertiesProvider.getGitProperties().getBranch());
     }
+
 }

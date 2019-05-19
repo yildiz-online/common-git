@@ -184,4 +184,5 @@ public class GitProperties {
     private static String getValue(Properties p, String key) {
         return p.getProperty(key, "Unknown");
     }
+
 }

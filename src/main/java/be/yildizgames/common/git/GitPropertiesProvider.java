@@ -79,4 +79,5 @@ public class GitPropertiesProvider {
             throw new GitPropertiesException(e);
         }
     }
+
 }
