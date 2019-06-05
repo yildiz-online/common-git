@@ -24,14 +24,12 @@
 
 package be.yildizgames.common.git.exception;
 
-import be.yildizgames.common.exception.technical.TechnicalException;
-
 /**
  * Technical exception to throw when git information cannot be retrieved.
  *
  * @author Grégory Van den Borre
  */
-public class GitPropertiesException extends TechnicalException {
+public class GitPropertiesException extends IllegalStateException {
 
     public GitPropertiesException(Exception cause) {
         super("Could not retrieve git info:", cause);
