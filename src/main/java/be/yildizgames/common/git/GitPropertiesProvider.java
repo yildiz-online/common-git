@@ -1,9 +1,9 @@
 /*
  * This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
  *
- *  Copyright (c) 2018 Grégory Van den Borre
+ *  Copyright (c) 2019 Grégory Van den Borre
  *
- *  More infos available: https://www.yildiz-games.be
+ *  More infos available: https://engine.yildiz-games.be
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  *  documentation files (the "Software"), to deal in the Software without restriction, including without
@@ -50,18 +50,34 @@ public class GitPropertiesProvider {
     public static GitProperties getGitProperties()  {
         try(InputStream is = GitPropertiesProvider.class.getClassLoader().getResourceAsStream("git.properties")) {
             Properties p = new Properties();
-            p.load(is);
+            if(is == null) {
+                p.setProperty("git.branch", "none");
+                p.setProperty("git.build.host", "none");
+                p.setProperty("git.build.time", "none");
+                p.setProperty("git.build.user.email", "none");
+                p.setProperty("git.build.user.name", "none");
+                p.setProperty("git.build.version", "none");
+                p.setProperty("git.closest.tag.commit.count", "none");
+                p.setProperty("git.closest.tag.name", "none");
+                p.setProperty("git.commit.id", "none");
+                p.setProperty("git.commit.id.abbrev", "none");
+                p.setProperty("git.commit.id.describe", "none");
+                p.setProperty("git.commit.id.describe-short", "none");
+                p.setProperty("git.commit.message.full", "none");
+                p.setProperty("git.commit.message.short", "none");
+                p.setProperty("git.commit.time", "none");
+                p.setProperty("git.commit.user.email", "none");
+                p.setProperty("git.commit.user.name", "none");
+                p.setProperty("git.dirty", "none");
+                p.setProperty("git.remote.origin.url", "none");
+                p.setProperty("git.tags", "none");
+            } else {
+                p.load(is);
+            }
             return new GitProperties(p);
         } catch (Exception e) {
             throw new GitPropertiesException(e);
         }
     }
 
-    public static GitProperties getGitPropertiesSafe()  {
-        try {
-            return getGitProperties();
-        } catch (GitPropertiesException e) {
-            return new GitProperties(new Properties());
-        }
-    }
 }

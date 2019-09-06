@@ -1,9 +1,9 @@
 /*
  * This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
  *
- *  Copyright (c) 2018 Grégory Van den Borre
+ *  Copyright (c) 2019 Grégory Van den Borre
  *
- *  More infos available: https://www.yildiz-games.be
+ *  More infos available: https://engine.yildiz-games.be
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  *  documentation files (the "Software"), to deal in the Software without restriction, including without
@@ -33,15 +33,15 @@ import java.util.Properties;
 /**
  * @author Grégory Van den Borre
  */
-class GitPropertiesTest {
+public class GitPropertiesTest {
 
     @Test
-    void checkNullParameter() {
+    public void checkNullParameter() {
         Assertions.assertThrows(GitPropertiesException.class, () -> new GitProperties(null));
     }
 
     @Test
-    void checkProperties() {
+    public void checkProperties() {
         Properties p = givenAProperties();
         GitProperties gitProperties = new GitProperties(p);
         Assertions.assertEquals("myBranch", gitProperties.getBranch());
@@ -67,7 +67,7 @@ class GitPropertiesTest {
     }
 
     @Test
-    void checkEmptyProperties() {
+    public void checkEmptyProperties() {
         Properties p = new Properties();
         GitProperties gitProperties = new GitProperties(p);
         Assertions.assertEquals("Unknown", gitProperties.getBranch());
@@ -117,4 +117,5 @@ class GitPropertiesTest {
 
         return p;
     }
+
 }
